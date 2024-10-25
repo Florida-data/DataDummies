@@ -1,31 +1,20 @@
-import { StrictMode, useState } from 'react';
+import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { FormChanger } from './FormChanger.jsx';
-
-
-
-
-
-import { Button } from './Button.jsx';
-
-
-
-
-
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Welcome } from './Welcome.jsx';
 
 createRoot(document.getElementById('root')).render(
-  <>
-    <section className='login_section vh-100 w-100 d-flex  align-items-center align-content-center justify-content-center flex-column'>
-    
-    
-    
-
-    <FormChanger />
-
+  <StrictMode>
+    <Router>
       
+        <Routes>
+          <Route path='/' element={<Welcome/>} />
+          <Route path='/login' element={<FormChanger />} />
+          <Route path='/register' element={<FormChanger />} />
+        </Routes>
       
-    </section>
-    
-  </>
+    </Router>
+  </StrictMode>
 );
