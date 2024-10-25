@@ -14,7 +14,7 @@ createRoot(document.getElementById('root')).render(
           <Route path='/login' element={<FormChanger />} />
           <Route path='/register' element={<FormChanger />} />
         </Routes>
-      
+        
     </Router>
   </StrictMode>
 );
