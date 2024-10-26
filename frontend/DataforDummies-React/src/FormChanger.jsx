@@ -1,52 +1,51 @@
 import { Form } from "./Form.jsx";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Button } from './Button.jsx';
 import { motion } from 'framer-motion';
-import {useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 const classnames = ["login_labels", "login_inputs", "login_form", "login_div"];
 
 export function FormChanger() {
-    const [email, setEmail] = useState('')
-    const [password, setPassword] = useState('')
-    const [user, setUser] = useState('')
-    const [passwordConfirm, setPasswordConfirm] = useState('')
-
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [name, setName] = useState('');
+    const [passwordConfirm, setPasswordConfirm] = useState('');
     const navigate = useNavigate();
+    const location = useLocation();
     const isLogin = location.pathname === "/login";
+
     const onChangeFunctions = isLogin
-    ? [(e) => setEmail(e.target.value), (e) => setPassword(e.target.value)]
-    : [
-        (e) => setUser(e.target.value),
-        (e) => setEmail(e.target.value),
-        (e) => setPassword(e.target.value),
-        (e) => setPasswordConfirm(e.target.value)
-    ];
-    
-    const submit = async(e) =>
-    {
-        e.preventDefault()
-        const response = isLogin ? (await fetch ("http://localhost:8000/api/login", {
-            method: 'POST',
-            headers: {'Content-type' : 'application/json'},
-            body: JSON.stringify({
-                email,
-                password
-            }) 
-        })) : (
-            await fetch ("http://localhost:8000/api/register", {
+        ? [(e) => setEmail(e.target.value), (e) => setPassword(e.target.value)]
+        : [
+            (e) => setName(e.target.value),
+            (e) => setEmail(e.target.value),
+            (e) => setPassword(e.target.value),
+            (e) => setPasswordConfirm(e.target.value)
+        ];
+
+    const submit = async (e) => {
+        e.preventDefault();
+        
+        try {
+            const response = await fetch(`http://localhost:8000/api/${isLogin ? 'login' : 'register'}`, {
                 method: 'POST',
-                headers: {'Content-type' : 'application/json'},
-                body: JSON.stringify({
-                    user,
-                    email,
-                    password,
-                    passwordConfirm,
-                })
-            }))
-        const content = await response.json()
-        console.log(content)
-    }
+                headers: { 'Content-type': 'application/json' },
+                credentials: 'include',
+                body: JSON.stringify(isLogin ? { email, password } : { name, email, password })
+            });
+
+            if (response.ok) {
+                navigate(isLogin ? "/home" : "/login");
+            } else {
+                const errorData = await response.json();
+                alert(`Error: ${errorData.detail || 'Error desconocido'}`);
+            }
+        } catch (error) {
+            console.error("Network Error:", error);
+            alert("Error de red, intenta más tarde.");
+        }
+    };
 
     const labels = isLogin ? ["Email", "Contraseña"] : ["Usuario", "Email", "Contraseña", "Confirmar Contraseña"];
     const types = isLogin ? ["email", "password"] : ["text", "email", "password", "password"];
@@ -55,7 +54,6 @@ export function FormChanger() {
     const toggleText = isLogin ? "Cambia a Registro" : "Cambia a Login";
 
     const toggleForm = () => {
-        
         navigate(isLogin ? "/register" : "/login");
     };
 
@@ -78,6 +76,7 @@ export function FormChanger() {
                     textButton={textButton}
                     title={title}
                     onChangeFunctions={onChangeFunctions}
+                    onSubmit={submit}
                 />
                 <Button
                     class_button="login_button mt-3 mb-4 text-light"

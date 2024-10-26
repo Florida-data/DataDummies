@@ -1,7 +1,7 @@
 import { Button } from './Button.jsx';
 import "./styles/Form.css";
 
-export function Form({ labels, types, classnames, title, title_class, class_button, textButton, onChangeFunctions }) {
+export function Form({ labels, types, classnames, title, title_class, class_button, textButton, onChangeFunctions, onSubmit }) {
     const bootstrapClasses = ["container", "text-light", classnames[2]];
 
     const label_forms = (labels, types) => {
@@ -19,13 +19,10 @@ export function Form({ labels, types, classnames, title, title_class, class_butt
         ));
     };
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        //aki maneja y revisa q si esten kul los campos vv
-    };
+    
 
     return (
-        <form className={`${bootstrapClasses.join(" ")} col-12 mx-0 px-0`} onSubmit={handleSubmit}>
+        <form className={`${bootstrapClasses.join(" ")} col-12 mx-0 px-0`} onSubmit={onSubmit}>
             {title && (
                 <div className={`container-fluid d-flex justify-content-center`}>
                     <h4 className={`h1 ${title_class}`}>{title}</h4>
