@@ -7,10 +7,46 @@ import {useNavigate } from 'react-router-dom';
 const classnames = ["login_labels", "login_inputs", "login_form", "login_div"];
 
 export function FormChanger() {
-    
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
+    const [user, setUser] = useState('')
+    const [passwordConfirm, setPasswordConfirm] = useState('')
+
     const navigate = useNavigate();
-    
     const isLogin = location.pathname === "/login";
+    const onChangeFunctions = isLogin
+    ? [(e) => setEmail(e.target.value), (e) => setPassword(e.target.value)]
+    : [
+        (e) => setUser(e.target.value),
+        (e) => setEmail(e.target.value),
+        (e) => setPassword(e.target.value),
+        (e) => setPasswordConfirm(e.target.value)
+    ];
+    
+    const submit = async(e) =>
+    {
+        e.preventDefault()
+        const response = isLogin ? (await fetch ("http://localhost:8000/api/login", {
+            method: 'POST',
+            headers: {'Content-type' : 'application/json'},
+            body: JSON.stringify({
+                email,
+                password
+            }) 
+        })) : (
+            await fetch ("http://localhost:8000/api/register", {
+                method: 'POST',
+                headers: {'Content-type' : 'application/json'},
+                body: JSON.stringify({
+                    user,
+                    email,
+                    password,
+                    passwordConfirm,
+                })
+            }))
+        const content = await response.json()
+        console.log(content)
+    }
 
     const labels = isLogin ? ["Email", "Contraseña"] : ["Usuario", "Email", "Contraseña", "Confirmar Contraseña"];
     const types = isLogin ? ["email", "password"] : ["text", "email", "password", "password"];
@@ -41,6 +77,7 @@ export function FormChanger() {
                     class_button="login_button text-light"
                     textButton={textButton}
                     title={title}
+                    onChangeFunctions={onChangeFunctions}
                 />
                 <Button
                     class_button="login_button mt-3 mb-4 text-light"

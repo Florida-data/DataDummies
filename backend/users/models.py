@@ -1,24 +1,11 @@
-from django.db import models
-from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin
-from django.utils.translation import gettext_lazy as _
-from .managers import customUserManager
-# Create your models here.
-class User(AbstractBaseUser, PermissionsMixin):
-    username = models.CharField(_("Nombre de Usuario"), max_length=20)
-    email = models.EmailField(_("Email"), max_length=254, unique=True)
-    date_joined = models.DateTimeField(auto_now_add=True)
+from  django.db import models
+from django.contrib.auth.models import AbstractUser
+class User (AbstractUser):
+    name = models.CharField( max_length=50)
+    email = models.EmailField( max_length=254, unique=True)
+    password = models.CharField( max_length=255)
+    username = None
     
-    USERNAME_FIELD = "email"
-    REQUIRED_FIELDS = ["username"]
-    objects = customUserManager()
+    USERNAME_FIELD= 'email'
+    REQUIRED_FIELDS = []
     
-    class Meta:
-        verbose_name = _("Usuario")
-        verbose_name_plural = _("Usuarios")
-        
-    def __str__(self):
-        return self.email
-
-    
-    
-

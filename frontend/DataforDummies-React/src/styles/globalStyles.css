@@ -29,7 +29,7 @@ body{
     color: #fff7;
 }
 .d-flex .welcome_div_text{
-    background-color: #181818;
+    background-color: #52d1f210;
     
 
 }
@@ -38,7 +38,7 @@ body{
     font-size: 3em;
     font-weight: bold;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    filter: drop-shadow(16px 16px 0 #000);
+    
     color: #fff;
     
     
