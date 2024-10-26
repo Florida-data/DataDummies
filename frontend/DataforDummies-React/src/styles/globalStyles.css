@@ -14,15 +14,49 @@ body{
 }
 .d-flex .welcome_title{
     margin: 0;
-    margin-right: 6rem;
-    filter: drop-shadow(0 2px 10px #32f);
+    margin-right: 9rem;
+    
     letter-spacing: .6rem;
     font-size: 4rem;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-weight: bolder;
-
+    color: #5d2662;
     
 }
+.d-flex .welcome_text_1{
+    font-size: 1.4em;
+    letter-spacing: .5rem;
+    color: #fff7;
+}
+.d-flex .welcome_div_text{
+    background-color: #181818;
+    
+
+}
+
+.d-flex .welcome_text{
+    font-size: 3em;
+    font-weight: bold;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    filter: drop-shadow(16px 16px 0 #000);
+    color: #fff;
+    
+    
+}
+.d-flex .welcome_button{
+    
+    background-color: #fff;
+}
+.d-flex .welcome_button:focus{
+    outline: transparent;
+    box-shadow: none;
+}
+.d-flex .welcome_button:hover{
+    background-color: #fff;
+    box-shadow: none;
+}
+
+
 
 .blur{
     position: absolute;
