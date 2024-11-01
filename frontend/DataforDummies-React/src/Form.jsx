@@ -1,7 +1,7 @@
 import { Button } from './Button.jsx';
 import "./styles/Form.css";
 
-export function Form({ labels, types, classnames, title, title_class, class_button, textButton, onChangeFunctions, onSubmit }) {
+export function Form({ names,labels, types, classnames, title, title_class, class_button, textButton, onChangeFunction, onSubmit }) {
     const bootstrapClasses = ["container", "text-light", classnames[2]];
 
     const label_forms = (labels, types) => {
@@ -13,7 +13,9 @@ export function Form({ labels, types, classnames, title, title_class, class_butt
                 <input 
                     type={types[index]} 
                     className={`${classnames[1]} form-control`} 
-                    onChange={onChangeFunctions[index]} 
+                    onChange={onChangeFunction} 
+                    name={names[index]}
+                    required
                 />
             </div>
         ));
@@ -22,7 +24,7 @@ export function Form({ labels, types, classnames, title, title_class, class_butt
     
 
     return (
-        <form className={`${bootstrapClasses.join(" ")} col-12 mx-0 px-0`} onSubmit={onSubmit}>
+        <form className={`${bootstrapClasses.join(" ")} col-12 mx-0 px-0`} onSubmit={e =>onSubmit(e)}>
             {title && (
                 <div className={`container-fluid d-flex justify-content-center`}>
                     <h4 className={`h1 ${title_class}`}>{title}</h4>

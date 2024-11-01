@@ -4,6 +4,9 @@ body{
     
     
 }
+.login_section{
+    background-image: ('/src/static/morado.jpg');
+}
 .d-flex .welcome_f1div{
     text-align: center; 
 }
@@ -23,6 +26,24 @@ body{
     color: #5d2662;
     
 }
+
+
+
+#mainContent {
+    transition: margin-left 0.3s ease;
+}
+
+.offcanvas.show + #mainContent {
+    margin-left: 25%; 
+}
+
+
+
+
+
+
+
+
 .d-flex .welcome_text_1{
     font-size: 1.4em;
     letter-spacing: .5rem;
@@ -88,9 +109,7 @@ section .div_login {
 
     
 }
-.container-fluid .login_title{
-    
-}
+
 
 
 .login_div .login_labels {
