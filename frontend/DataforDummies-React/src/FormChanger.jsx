@@ -46,14 +46,23 @@ export function FormChanger() {
     const onChange =  e => setFormData({ ...formData, [e.target.name]: e.target.value });
 
     //shit para hacer el registro jaja
+
     const onSubmit = e => {
         e.preventDefault()
         console.log("Enviado")
-        console.log(formData)
-        axios.post("http://127.0.0.1:8000/auth/users/", formData).
-        then(response =>{
-            console.log(response);
-        })
+        console.log(formData);
+        isLogin ? (
+            axios.post("http://127.0.0.1:8000/auth/users/", formData).
+            then(response =>{
+                console.log(response);
+            })
+        ) : (
+            axios.post("http://127.0.0.1:8000/auth/users/", formData).
+            then(response =>{
+                console.log(response);
+            })
+        )
+        
 
     }
 
