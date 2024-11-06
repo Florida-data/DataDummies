@@ -1,0 +1,19 @@
+.offcanvas{
+    background-color: #141118 !important;
+    color: #fff;
+    border: none !important;
+}
+.ms-1{
+    color: #fff !important;
+}
+.btn-outline-success{
+    background-color: #008f39;
+}
+.navbar .form-control{
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+}
+.offcanvas-header .btn-close{
+    background-color: #fff;
+}

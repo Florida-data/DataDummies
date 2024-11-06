@@ -1,0 +1,82 @@
+/* home.css */
+.body{
+    background-color: #0a080c!important;
+}
+#mainContent{
+    background-color: #0a080c;
+}
+.home-container {
+    padding: 20px;
+    background-color: #0a080c;
+}
+hr{
+    border: 1px solid #fff
+}
+
+.home_welcome h4 {
+    font-size: 2.5rem;
+    color: white;
+    font-weight: 400;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    letter-spacing: .5rem;
+    word-spacing: .6rem;
+}
+
+.home-projects {
+    margin-top: 30px;
+}
+
+.projects-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    margin-top: 20px;
+}
+
+.project-card {
+    background-color: #28212f;
+    padding: 20px;
+    border-radius: 3px;
+    width: 300px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    color: white;
+}
+
+.project-title {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+}
+
+.project-description {
+    font-size: 1rem;
+    margin-bottom: 15px;
+}
+
+.project-card button {
+    background-color: #6d3372;
+    border: none;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.project-card button:hover {
+    background-color: #5d2662;
+}
+
+/* Estilo para la barra de búsqueda */
+.navbar {
+    background-color: transparent;
+    margin-bottom: 30px;
+}
+
+.navbar .form-control {
+    width: 70%;
+}
+
+.navbar .btn img {
+    width: 20px;
+    height: 20px;
+}

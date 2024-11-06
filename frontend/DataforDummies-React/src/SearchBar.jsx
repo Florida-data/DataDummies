@@ -1,10 +1,10 @@
 
-
+import './styles/searchbar.css'
 export function SearchBar() {
 
 
     return (
-        <nav className="navbar navbar-expand-lg navbar-dark">
+        <nav className="navbar navbar-expand-lg ">
             <div className="collapse navbar-collapse" id="navbarSupportedContent">    
                 <form className="form-inline my-2 my-lg-0 d-flex">
                     <input className="form-control mr-sm-2 mx-3" type="search" placeholder="Search" aria-label="Search" />
