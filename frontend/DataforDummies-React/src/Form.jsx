@@ -24,7 +24,7 @@ export function Form({ names,labels, types, classnames, title, title_class, clas
     
 
     return (
-        <form className={`${bootstrapClasses.join(" ")} col-12 mx-0 px-0`} onSubmit={e =>onSubmit(e)}>
+        <form className={`${bootstrapClasses.join(" ")} col-12 mx-0 px-0`} onSubmit={onSubmit}>
             {title && (
                 <div className={`container-fluid d-flex justify-content-center`}>
                     <h4 className={`h1 ${title_class}`}>{title}</h4>

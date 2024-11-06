@@ -1,6 +1,6 @@
 
 
-import menuImage from './static/menu.png';
+
 
 import { Home } from "./Home";
 
@@ -9,7 +9,7 @@ export function Navbar() {
         <>
             <button className="btn float-start" data-bs-toggle="offcanvas" data-bs-target="#offcanvasMenu" role="button">
                 <i className="bi bi-arrow-right-square-fill fs-3">
-                    <img src={menuImage} alt="" />
+                    <img src="/static/menu.png" alt="" />
                 </i>
             </button>
             <div className="offcanvas offcanvas-start w-25" tabIndex="-1" id="offcanvasMenu" data-bs-keyboard="false" data-bs-backdrop="false">

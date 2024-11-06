@@ -3,18 +3,21 @@ import { useState } from "react";
 import { Button } from './Button.jsx';
 import { motion } from 'framer-motion';
 import { useNavigate, useLocation } from 'react-router-dom';
-import  axios  from 'axios'
+import axios from 'axios'
+import { connect } from 'react-redux'
+import { Login } from "./actions/Auth.jsx";
+import { useDispatch } from 'react-redux'
+
+
 
 const classnames = ["login_labels", "login_inputs", "login_form", "login_div"];
 
-export function FormChanger() {
-
-
-
+export function FormChanger({}) {
+    const dispatch = useDispatch()
     const navigate = useNavigate();
     const location = useLocation();
     const isLogin = location.pathname === "/login";
-    const names = isLogin ? ['email', 'password'] : [ 'name','email', 'password', 're_password']
+    const names = isLogin ? ['email', 'password'] : ['name', 'email', 'password', 're_password']
 
     const labels = isLogin ? ["Email", "Contraseña"] : ["Usuario", "Email", "Contraseña", "Confirmar Contraseña"];
     const types = isLogin ? ["email", "password"] : ["text", "email", "password", "password"];
@@ -25,51 +28,28 @@ export function FormChanger() {
     const toggleForm = () => {
         navigate(isLogin ? "/signup" : "/login");
     };
-    // shit para hacer el login jaja
+
     const [formData, setFormData] = useState(
         isLogin ? { email: '', password: '' } : { name: '', email: '', password: '', re_password: '' }
-
     )
-    let email, password, name, re_password;
+    const { email, password, name, re_password } = formData;
 
-    if (isLogin) {
-        // Desestructuramos solo los campos que necesitamos
-        ({ email, password } = formData);
-    } else {
-        // Desestructuramos todos los campos
-        ({ email, name, password, re_password } = formData);
-    }
-
-
-
-
-    const onChange =  e => setFormData({ ...formData, [e.target.name]: e.target.value });
-
-    //shit para hacer el registro jaja
+    const onChange = e => setFormData({ ...formData, [e.target.name]: e.target.value });
 
     const onSubmit = e => {
         e.preventDefault()
         console.log("Enviado")
         console.log(formData);
-        isLogin ? (
-            axios.post("http://127.0.0.1:8000/auth/users/", formData).
-            then(response =>{
-                console.log(response);
-            })
-        ) : (
-            axios.post("http://127.0.0.1:8000/auth/users/", formData).
-            then(response =>{
-                console.log(response);
-            })
-        )
-        
+        if (isLogin) {
+            dispatch(Login(email, password))
 
+        } else {
+            axios.post("http://127.0.0.1:8000/auth/users/", formData)
+                .then(response => {
+                    console.log(response);
+                })
+        }
     }
-
-
-    //Is the user Auth? Redirectionar to the fakin pagineishon
-
-
 
     return (
         <section className='login_section vh-100 w-100 d-flex align-items-center justify-content-center flex-column'>
@@ -90,7 +70,6 @@ export function FormChanger() {
                     textButton={textButton}
                     title={title}
                     onChangeFunction={onChange}
-                    
                     onSubmit={onSubmit}
                     names={names}
                 />
@@ -103,3 +82,5 @@ export function FormChanger() {
         </section>
     );
 }
+
+export default connect(null, { Login })(FormChanger);

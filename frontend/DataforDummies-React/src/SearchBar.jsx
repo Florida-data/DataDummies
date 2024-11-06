@@ -1,4 +1,4 @@
-import searchIcon from './static/search.png';
+
 
 export function SearchBar() {
 
@@ -9,7 +9,7 @@ export function SearchBar() {
                 <form className="form-inline my-2 my-lg-0 d-flex">
                     <input className="form-control mr-sm-2 mx-3" type="search" placeholder="Search" aria-label="Search" />
                         <button className="btn btn-outline-success my-2 my-sm-0" type="submit">
-                            <img src={searchIcon} alt="" />
+                            <img src="/static/search.png" alt="" />
                         </button>
                     
                 </form>
