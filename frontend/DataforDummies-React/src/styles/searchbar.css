@@ -7,7 +7,8 @@
     color: #fff !important;
 }
 .btn-outline-success{
-    background-color: #008f39;
+    background-color: #1e1923 !important;
+    border: #000 !important;
 }
 .navbar .form-control{
     border: none !important;
@@ -15,5 +16,24 @@
     box-shadow: none !important;
 }
 .offcanvas-header .btn-close{
-    background-color: #fff;
+    background-color: #141118;
+}
+.d-flex{
+    min-height: 4vh !important;
+}
+.searchbar-navbar {
+    height: 4vh; 
+    padding: 0.5rem 1rem;
+    padding-left: 0;
+    
+}
+
+.searchbar-navbar .form-control {
+    max-height: 40px;
+}
+
+.searchbar-navbar button {
+    max-height: 40px; 
+    display: flex;
+    align-items: center;
 }

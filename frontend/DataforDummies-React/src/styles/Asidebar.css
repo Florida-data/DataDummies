@@ -1,0 +1,40 @@
+.sidebar {
+    
+    
+    background-color: #000 !important;
+    color: #fff;
+    transition: width 0.3s;
+}
+
+
+#div_img_user {
+    min-height: auto !important;
+}
+#div_img_user .img_user{
+    border-radius: 50%;
+}
+.sidebar .nav-link {
+    color: #adb5bd;
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    transition: all 0.3s;
+}
+
+.sidebar.collapsed .nav-link {
+    justify-content: center;
+    padding: 10px 0;
+}
+
+.sidebar .nav-link i {
+    font-size: 1.25rem;
+}
+
+.sidebar .nav-link span {
+    margin-left: 10px;
+}
+
+.sidebar.collapsed .nav-link span {
+    display: none;
+}
+

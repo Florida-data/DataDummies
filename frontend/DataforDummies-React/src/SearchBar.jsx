@@ -1,19 +1,20 @@
+import './styles/searchbar.css';
 
-import './styles/searchbar.css'
 export function SearchBar() {
-
-
     return (
-        <nav className="navbar navbar-expand-lg ">
-            <div className="collapse navbar-collapse" id="navbarSupportedContent">    
-                <form className="form-inline my-2 my-lg-0 d-flex">
-                    <input className="form-control mr-sm-2 mx-3" type="search" placeholder="Search" aria-label="Search" />
-                        <button className="btn btn-outline-success my-2 my-sm-0" type="submit">
-                            <img src="/static/search.png" alt="" />
-                        </button>
-                    
-                </form>
-            </div>
+        <nav className="navbar  searchbar-navbar">
+            <form className="form-inline d-flex  vh-10">
+                <input
+                    className="form-control mx-2"
+                    type="search"
+                    placeholder="Buscar"
+                    aria-label="Buscar"
+                    style={{ width: '100%', maxWidth: '300px' }}
+                />
+                <button className="btn btn-outline-success" type="submit">
+                    <img src="/static/search.png" alt="Buscar" />
+                </button>
+            </form>
         </nav>
-    )
+    );
 }

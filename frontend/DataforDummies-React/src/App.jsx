@@ -21,7 +21,7 @@ export function App() {
                         <Route exact path='/' element={<Welcome />} />
                         <Route exact path='/login' element={ <FormChanger /> } />
                         <Route exact path='/signup' element={  <FormChanger /> } />
-                        <Route exact path='/home' element={<Navbar />} />
+                        <Route exact path='/home' element={<Home />} />
                         <Route exact path='/activate/:uid/:token' element={<Activation />} />
                     </Routes>
                 </AnimatePresence>

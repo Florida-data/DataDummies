@@ -1,69 +1,124 @@
+import React, { useState } from 'react';
+import './styles/Asidebar.css'
+import { FaHome, FaProjectDiagram, FaChartBar, FaCog, FaBars } from 'react-icons/fa';
+
+export function Navbar({ children }) {
+    const [isExpanded, setIsExpanded] = useState(false);
+
+    const toggleSidebar = () => {
+            if (isExpanded){
+                setTimeout(()=>{
+                    setIsExpanded(!isExpanded);
+                },10)
+                
+            } else{
+                setIsExpanded(!isExpanded);
+            }
+            
+        
+        
+    };
 
 
 
-
-import { Home } from "./Home";
-
-export function Navbar() {
     return (
-        <>
-            <button className="btn float-start" data-bs-toggle="offcanvas" data-bs-target="#offcanvasMenu" role="button">
-                <i className="bi bi-arrow-right-square-fill fs-3">
-                    <img src="/static/menu.png" alt="" />
-                </i>
-            </button>
-            <div className="offcanvas offcanvas-start w-25" tabIndex="-1" id="offcanvasMenu" data-bs-keyboard="false" data-bs-backdrop="false">
-                <div className="offcanvas-header">
-                    <h6 className="offcanvas-title d-none d-sm-block">Menu</h6>
-                    <button type="button" className="btn-close text-light" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                </div>
-                <div className="offcanvas-body px-0">
-                    <ul className="nav nav-pills flex-column mb-sm-auto mb-0 align-items-start" id="menu">
+        <div className="d-flex">
+            <aside className={`sidebar bg-dark text-white ${isExpanded ? 'expanded' : 'collapsed'}`}
+                onMouseEnter={toggleSidebar}
+                onMouseLeave={toggleSidebar}
+            >
+
+                <nav>
+
+                    <div className='d-flex flex-column align-items-center mt-5' id='div_img_user' s>
+                        <img src="/static/defaultUserImage.jpg" className='img-responsive img_user'
+                        width={isExpanded ? "100px" : '0px'} alt="" />
+                        <h5 className='h4 mt-2 mb-4' >{isExpanded ? "Usuario" : ''}</h5>
+                    </div>
+
+                    <ul className="nav flex-column">
                         <li className="nav-item">
-                            <a href="#" className="nav-link text-truncate">
-                                <i className="fs-5 bi-house"></i><span className="ms-1 d-none d-sm-inline">Home</span>
+                            <a href="#" className="nav-link">
+                                <FaHome />
+                                {isExpanded && <span>Inicio</span>}
                             </a>
                         </li>
-                        
-                        <li>
-                            <a href="#submenu1" data-bs-toggle="collapse" className="nav-link text-truncate">
-                                <i className="fs-5 bi-speedometer2"></i><span className="ms-1 d-none d-sm-inline">Crear Nuevo Proyecto</span>
+                        <li className="nav-item">
+                            <a href="#" className="nav-link">
+                                <FaProjectDiagram />
+                                {isExpanded && <span>Proyectos</span>}
                             </a>
                         </li>
-                        
-                        <li>
-                            <a href="#" className="nav-link text-truncate">
-                                <i className="fs-5 bi-table"></i><span className="ms-1 d-none d-sm-inline">Graficas</span>
+                        <li className="nav-item">
+                            <a href="#" className="nav-link">
+                                <FaChartBar />
+                                {isExpanded && <span>Estadísticas</span>}
                             </a>
                         </li>
-                        <li>
-                            <a href="#" className="nav-link text-truncate">
-                                <i className="fs-5 bi-table"></i><span className="ms-1 d-none d-sm-inline">Chatbot</span>
+                        <li className="nav-item">
+                            <a href="#" className="nav-link">
+                                <FaCog />
+                                {isExpanded && <span>Configuración</span>}
                             </a>
-                        </li>
-                        <li className="dropdown">
-                            <a href="#" className="nav-link dropdown-toggle text-truncate" id="dropdown" data-bs-toggle="dropdown" aria-expanded="false">
-                                <i className="fs-5 bi-bootstrap"></i><span className="ms-1 d-none d-sm-inline">Usuario</span>
-                            </a>
-                            <ul className="dropdown-menu text-small shadow" aria-labelledby="dropdown">
-                                <li><a className="dropdown-item" href="#">Settings</a></li>
-                                <li>
-                                    <hr className="dropdown-divider" />
-                                </li>
-                                <li><a className="dropdown-item" href="#">Sign out</a></li>
-                            </ul>
                         </li>
                     </ul>
-                </div>
-            </div>
-            <div className="container-fluid" id="mainContent">
-                <div className="row">
-                    <div className="col min-vh-100 py-3">
-                        <Home />
-                        
-                    </div>
-                </div>
-            </div>
-        </>
+                </nav>
+            </aside>
+
+            <main className="main-content">
+                {children}
+            </main>
+
+            <style >{`
+        .d-flex {
+          display: flex;
+          min-height: 90vh;
+        }
+        
+        .sidebar {
+          height: 100vh;
+          transition: width 0.3s;
+          overflow-x: hidden;
+          width: ${isExpanded ? '250px' : '45px'};
+          position: fixed;
+          left: 0;
+          top: 0;
+        }
+        
+        .main-content {
+          flex: 1;
+          margin-left: ${isExpanded ? '250px' : '60px'};
+          transition: margin-left 0.3s;
+          padding: 20px;
+        }
+        
+        .sidebar.collapsed .nav-link span {
+          display: none;
+        }
+        
+        .toggle-btn {
+          width: 100%;
+          text-align: left;
+          padding: 10px;
+        }
+        
+        .nav-link {
+          display: flex;
+          align-items: center;
+          padding: 10px;
+          color: white;
+          text-decoration: none;
+        }
+        
+        .nav-link:hover {
+          background-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        .nav-link svg {
+          margin-right: 10px;
+          font-size: 1.2em;
+        }
+      `}</style>
+        </div>
     );
 }
