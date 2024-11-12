@@ -1,0 +1,97 @@
+body{
+    background-color: #0a080c !important;
+}
+
+.navbar{
+    background-color: #0a080c !important;
+    border-bottom: 1px solid #333;
+}
+.nav-link{
+    color: #000 !important;
+}
+
+
+
+.button_container .mainPage_b_1{
+    background-color: #222 !important;
+    color: #fff;
+}
+.button_container .mainPage_b_2{
+    background-color: #2f14b8 !important;
+    color: #fff;
+}
+.button_container .mainPage_button{
+    border-radius: 1em;
+}
+.button_container .mainPage_button:hover {
+    box-shadow: 0 0 16px #2f14b8 !important;
+}
+.button_container .mainPage_button:active {
+    box-shadow: 0 0 16px #fff;
+}
+.button_container .mainPage_button:focus{
+    box-shadow: 0 0 16px #fff;
+    outline: none;
+}
+
+.image_container{
+    margin-top: 10em !important;
+    margin-left: 5em;
+    margin-right: 5em;
+}
+.image_title{
+    text-wrap: pretty;
+    font-size: 3.7rem;
+    font-weight: bolder;
+    font-family: 'Montserrat';
+}
+.image_text{
+    text-wrap: pretty;
+    font-weight: 400;
+    margin-right: 10em;
+    letter-spacing: 2px;
+    word-spacing: 1px;
+    font-family: 'Montserrat';
+}
+.first_section{
+    margin-top: 14em;
+    margin-left: 8em;
+    margin-right: 5em;
+    
+}
+.first_section_text{
+    text-wrap: pretty;
+    font-weight: 100;
+    margin-right: 14em;
+    letter-spacing: 2px;
+    word-spacing: 1px;   
+    font-size: 1.3rem;
+    font-family: 'Montserrat';
+}
+.cards_container{
+    margin-top: 5em;
+    margin-right: 3em;
+    margin-bottom: 5em;
+    gap: 5vw;
+    flex-wrap: wrap;
+    
+}
+.card_container{
+    background-color: #2222226f;
+    border-radius: 1rem;
+    
+}
+.card_icon{    
+    color: #fff;
+    width: 10vw !important;
+    height: 10vw !important;
+}
+.card_text{
+    color: #fff;
+
+}
+.mainPage_section .footer{
+    margin-top: 35vh;
+    min-height: 100vh !important;
+    background-color: #000000 !important;
+}

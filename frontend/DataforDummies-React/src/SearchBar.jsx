@@ -1,20 +1,30 @@
-import './styles/searchbar.css';
 
-export function SearchBar() {
+import { FaSearch } from 'react-icons/fa'
+import { Form, InputGroup, Button } from 'react-bootstrap'
+import './styles/searchbar.css'
+
+export  function SearchBar() {
     return (
-        <nav className="navbar  searchbar-navbar">
-            <form className="form-inline d-flex  vh-10">
-                <input
-                    className="form-control mx-2"
-                    type="search"
+        <Form className="d-flex align-items-center justify-content-center form_search">
+            <InputGroup>
+                <Form.Control
                     placeholder="Buscar"
                     aria-label="Buscar"
-                    style={{ width: '100%', maxWidth: '300px' }}
+                    className="bg-dark text-light border-dark input_search"
+                    style={{
+                        maxWidth: '300px',
+                        height: '40px',
+                        fontSize: '14px'
+                    }}
                 />
-                <button className="btn btn-outline-success" type="submit">
-                    <img src="/static/search.png" alt="Buscar" />
-                </button>
-            </form>
-        </nav>
-    );
+                <Button
+                    variant="outline-secondary"
+                    className="bg-dark button_searchbar"
+                    style={{ height: '40px' }}
+                >
+                    <FaSearch className="text-light " />
+                </Button>
+            </InputGroup>
+        </Form>
+    )
 }

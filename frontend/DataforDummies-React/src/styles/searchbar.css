@@ -1,39 +1,29 @@
-.offcanvas{
-    background-color: #141118 !important;
-    color: #fff;
-    border: none !important;
-}
-.ms-1{
-    color: #fff !important;
-}
-.btn-outline-success{
-    background-color: #1e1923 !important;
-    border: #000 !important;
-}
-.navbar .form-control{
-    border: none !important;
-    outline: none !important;
-    box-shadow: none !important;
-}
-.offcanvas-header .btn-close{
-    background-color: #141118;
-}
-.d-flex{
-    min-height: 4vh !important;
-}
-.searchbar-navbar {
-    height: 4vh; 
-    padding: 0.5rem 1rem;
-    padding-left: 0;
+.form-control:focus {
+    box-shadow: none;
+    border-color: #6c757d;
+  }
+  
+  .form-control::placeholder {
+    color: #6c757d;
+  }
+  
+  /* Eliminar línea de autocompletado */
+  .form-control:-webkit-autofill,
+  .form-control:-webkit-autofill:hover,
+  .form-control:-webkit-autofill:focus {
+    -webkit-text-fill-color: #fff;
+    -webkit-box-shadow: 0 0 0px 1000px #212529 inset;
+    transition: background-color 5000s ease-in-out 0s;
+  }
+  .form_search{
+    min-height: 3vh !important;
     
-}
-
-.searchbar-navbar .form-control {
-    max-height: 40px;
-}
-
-.searchbar-navbar button {
-    max-height: 40px; 
-    display: flex;
-    align-items: center;
-}
+  }
+  .input_search{
+    background-color: #28212f!important;
+    border:none;
+  }
+  .button_searchbar{
+    background-color: #2f14b8 !important;
+    border:none;
+  }

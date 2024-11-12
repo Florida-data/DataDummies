@@ -36,7 +36,7 @@ export function Form({ names,labels, types, classnames, title, title_class, clas
             </div>
 
             <div className={`container-fluid col-12 mt-5 d-flex flex-row px-0 d-flex align-items-center flex-column`}>
-                <Button class_button={class_button} text={textButton} />
+                <Button class_button={class_button} text={textButton} cols={'col-md-5'} />
             </div>
         </form>
     );

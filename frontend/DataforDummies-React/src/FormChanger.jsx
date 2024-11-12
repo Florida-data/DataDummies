@@ -76,6 +76,7 @@ export function FormChanger({}) {
                 <Button
                     class_button="login_button mt-3 mb-4 text-light"
                     text={toggleText}
+                    cols={'col-md-5'}
                     functionClick={toggleForm}
                 />
             </motion.div>

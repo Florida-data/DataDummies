@@ -1,7 +1,7 @@
 .sidebar {
     
     
-    background-color: #000 !important;
+    background-color: #0e0e0e!important;
     color: #fff;
     transition: width 0.3s;
 }
@@ -36,5 +36,9 @@
 
 .sidebar.collapsed .nav-link span {
     display: none;
+}
+.main-content{
+    
+    padding: 0 !important;
 }
 

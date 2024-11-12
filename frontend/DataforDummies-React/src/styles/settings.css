@@ -1,0 +1,35 @@
+.settings_container{
+    
+    
+}
+.container_backgroundimage{
+    position: relative;
+    width: 100%;
+    height: 100vh; /* o lo que necesites */
+    overflow: hidden;
+    min-height: 20px !important;
+    overflow: visible;
+    
+    box-sizing: border-box;
+}
+.backgroundimage{
+    
+    
+    object-fit: cover;
+    
+    min-height: 20px !important;
+    overflow: visible;
+    
+    box-sizing: border-box;
+}
+.settings_image_user{
+    
+    width: 15vw;
+    height: 15vw;
+    border-radius: 50%;
+    border: 3px solid #fff;
+}
+.settings_image_user_container_description{
+    
+    margin-left: 4rem;
+}
