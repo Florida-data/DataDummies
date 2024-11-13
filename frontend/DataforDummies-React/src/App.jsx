@@ -13,6 +13,10 @@ import { Provider } from 'react-redux';
 import store from './Store.jsx';
 import { MainPage } from './MainPage.jsx';
 import { Settings } from './settings.jsx';
+import { PasswordReset } from './PasswordReset.jsx';
+import { ConfirmPasswordReset } from './ConfirmPasswordReset.jsx';
+
+
 
 export function App() {
     return (
@@ -21,11 +25,13 @@ export function App() {
                 <AnimatePresence>
                     <Routes>
                         <Route exact path='/' element={<MainPage />} />
-                        <Route exact path='/login' element={ <FormChanger /> } />
-                        <Route exact path='/signup' element={  <FormChanger /> } />
+                        <Route exact path='/login' element={<FormChanger />} />
+                        <Route exact path='/signup' element={<FormChanger />} />
                         <Route exact path='/home' element={<Home />} />
                         <Route exact path='/settings' element={<Settings />} />
                         <Route exact path='/activate/:uid/:token' element={<Activation />} />
+                        <Route exact path='/auth/users/reset_password/' element={<PasswordReset />} />
+                        <Route exact path='/auth/users/reset_password_confirm/' element={<ConfirmPasswordReset />} />
                     </Routes>
                 </AnimatePresence>
             </Router>

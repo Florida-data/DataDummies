@@ -12,7 +12,7 @@ export function Navbar() {
                         <li className='nav_list_item'><a href="#">Perfil</a></li>
                         <li className='nav_list_item'><a href="#">Preferencias Visuales</a></li>
                         
-                        <li className='nav_list_item'><a href="#">Seguridad</a></li>
+                        
                     </ul>
                 </nav>
             </div>

@@ -15,6 +15,8 @@ class UserAccountManager(BaseUserManager):
 class User (AbstractBaseUser, PermissionsMixin):
     email = models.EmailField( max_length=254, unique=True)
     name = models.CharField( max_length=50, default='JohnDoe')
+    photo = models.ImageField( upload_to='users/photos/', height_field=None, width_field=None, max_length=None, default=None)
+    
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
     objects =  UserAccountManager()

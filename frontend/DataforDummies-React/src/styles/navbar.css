@@ -2,11 +2,13 @@
 
 
 .nav_container {
-  width: 80%;
+  max-width: 94vw ;
   margin: 0 ;
   position: fixed;
   z-index: 10;
   border-bottom: 1px solid #666;
+  padding-right: 0;
+  background: #0a080c;
 }
 
 .nav_header {
@@ -15,11 +17,7 @@
   z-index: 10;
 }
 
-.nav_header::after {
-  content: "";
-  display: table;
-  clear: both;
-}
+
 
 .nav_logo {
   float: left;

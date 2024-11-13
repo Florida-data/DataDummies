@@ -1,5 +1,6 @@
 body {
     background-color: #000 !important;
+    overflow-x: hidden;
 }
 
 #root .login_section {
